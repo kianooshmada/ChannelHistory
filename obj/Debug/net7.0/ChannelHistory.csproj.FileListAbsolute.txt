@@ -1,0 +1,15 @@
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/bin/Debug/net7.0/ChannelHistory
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/bin/Debug/net7.0/ChannelHistory.deps.json
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/bin/Debug/net7.0/ChannelHistory.runtimeconfig.json
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/bin/Debug/net7.0/ChannelHistory.dll
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/bin/Debug/net7.0/ChannelHistory.pdb
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/obj/Debug/net7.0/ChannelHistory.csproj.AssemblyReference.cache
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/obj/Debug/net7.0/ChannelHistory.GeneratedMSBuildEditorConfig.editorconfig
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/obj/Debug/net7.0/ChannelHistory.AssemblyInfoInputs.cache
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/obj/Debug/net7.0/ChannelHistory.AssemblyInfo.cs
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/obj/Debug/net7.0/ChannelHistory.csproj.CoreCompileInputs.cache
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/obj/Debug/net7.0/ChannelHistory.dll
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/obj/Debug/net7.0/refint/ChannelHistory.dll
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/obj/Debug/net7.0/ChannelHistory.pdb
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/obj/Debug/net7.0/ChannelHistory.genruntimeconfig.cache
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/obj/Debug/net7.0/ref/ChannelHistory.dll

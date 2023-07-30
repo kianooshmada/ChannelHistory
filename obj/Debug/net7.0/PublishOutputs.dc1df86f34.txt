@@ -1,0 +1,5 @@
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/bin/Debug/net7.0/publish/ChannelHistory
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/bin/Debug/net7.0/publish/ChannelHistory.dll
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/bin/Debug/net7.0/publish/ChannelHistory.deps.json
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/bin/Debug/net7.0/publish/ChannelHistory.runtimeconfig.json
+/home/kianoush/Desktop/Sample Projects/zenon/ChannelHistory/bin/Debug/net7.0/publish/ChannelHistory.pdb
