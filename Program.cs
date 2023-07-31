@@ -4,7 +4,7 @@ using ExtensionMethods;
 
 try
 {
-    string? fileName = GetValidFileNameFromUser();
+    string fileName = GetValidFileNameFromUser();
 
     List<ValuesTagFields> valuesTagFieldsList = ReadValuesTagDataFromFile(fileName);
     List<VariablesTagFields> variablesTagFields = ReadVariablesTagDataFromFile(fileName);
