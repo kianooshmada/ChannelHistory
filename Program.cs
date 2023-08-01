@@ -33,12 +33,10 @@ try
     }
 
     WriteInNewTextFile(outputFieldsList);
-    Console.WriteLine("The output file created successfully.");
-
 }
 catch (Exception ex)
 {
-    Console.WriteLine(ex.Message);
+    Console.WriteLine(ex.Message, Console.ForegroundColor = ConsoleColor.Red);
 }
 
 static string GetValidFileNameFromUser()
@@ -51,7 +49,7 @@ static string GetValidFileNameFromUser()
 
         if (string.IsNullOrEmpty(fileName))
         {
-            Console.WriteLine("File name can't be empty!");
+            Console.WriteLine("File name can't be empty!", Console.ForegroundColor = ConsoleColor.Yellow);
         }
 
     } while (string.IsNullOrEmpty(fileName));
@@ -158,12 +156,14 @@ static void WriteInNewTextFile(List<OutputFields> outputFieldsList)
             filePath = Console.ReadLine()!;
         } while (string.IsNullOrEmpty(filePath));
     }
-    else // when response is ConsoleKey.Y
+    else
         filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
     using (StreamWriter outputFile = new StreamWriter(Path.Combine(filePath!, "OutputFile.txt")))
     {
         foreach (var outputFields in outputFieldsList)
             outputFile.WriteLine($" Variable ID: {outputFields.VariableID}, Min Value: {outputFields.MinValue}, Min TimeStamp: {outputFields.MinTimeStamp}, Max Value: {outputFields.MaxValue}, Max TimeStamp: {outputFields.MaxTimeStamp}");
+
+        Console.WriteLine("The output file created successfully in the path {0}.", filePath, Console.ForegroundColor = ConsoleColor.Green);
     }
 }
