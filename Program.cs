@@ -7,11 +7,12 @@ try
     string fileName = GetValidFileNameFromUser();
 
     List<ValuesTagFields> valuesTagFieldsList = ReadValuesTagDataFromFile(fileName);
-    List<VariablesTagFields> variablesTagFields = ReadVariablesTagDataFromFile(fileName);
+    List<VariablesTagFields> variablesTagFieldsList = ReadVariablesTagDataFromFile(fileName);
+    List<OutputFields> outputFieldsList = new List<OutputFields>();
 
-    var valuesTagFieldsListGroupped = valuesTagFieldsList.GroupBy(d => d.ChannelIndex);
+    var groupByValuesTagFieldsList = valuesTagFieldsList.GroupBy(d => d.ChannelIndex);
 
-    foreach (var item in valuesTagFieldsListGroupped)
+    foreach (var item in groupByValuesTagFieldsList)
     {
         decimal minValue = item.MinByValue().Value;
         DateTime minTimeStamp = item.MinByTimeStamp().TimeStamp;
@@ -19,10 +20,21 @@ try
         decimal maxValue = item.MaxByValue().Value;
         DateTime maxTimeStamp = item.MaxByTimeStamp().TimeStamp;
 
-        var variableID = variablesTagFields.Where(v => v.ChannelIndex == item.Key).FirstOrDefault()?.VariableID;
+        byte? variableID = variablesTagFieldsList.Where(v => v.ChannelIndex == item.Key).FirstOrDefault()?.VariableID;
 
-        Console.WriteLine($"Variable ID: {variableID}, Min Value: {minValue}, Min TimeStamp: {minTimeStamp}, Max Value: {maxValue}, Max TimeStamp: {maxTimeStamp}");
+        outputFieldsList.Add(new OutputFields
+        {
+            VariableID = variableID ?? 0,
+            MinValue = minValue,
+            MinTimeStamp = minTimeStamp,
+            MaxValue = maxValue,
+            MaxTimeStamp = maxTimeStamp
+        });
     }
+
+    WriteInNewTextFile(outputFieldsList);
+    Console.WriteLine("The output file created successfully.");
+
 }
 catch (Exception ex)
 {
@@ -116,11 +128,42 @@ static List<VariablesTagFields> ReadVariablesTagDataFromFile(string fileName)
                     ChannelIndex = splittedItems[0],
                     VariableID = Convert.ToByte(splittedItems[1])
                 };
-
                 variablesTagFieldsList.Add(variablesTagFields);
             }
         }
     }
 
     return variablesTagFieldsList;
+}
+
+static void WriteInNewTextFile(List<OutputFields> outputFieldsList)
+{
+    ConsoleKey response;
+    do
+    {
+        Console.Write("Do you want to save the new file in Desktop? [y/n] ");
+        response = Console.ReadKey(false).Key;
+        if (response != ConsoleKey.Enter)
+            Console.WriteLine();
+
+    } while (response != ConsoleKey.Y && response != ConsoleKey.N);
+
+    string filePath = string.Empty;
+
+    if (response == ConsoleKey.N)
+    {
+        do
+        {
+            Console.WriteLine("Enter the path for saving the file:");
+            filePath = Console.ReadLine()!;
+        } while (string.IsNullOrEmpty(filePath));
+    }
+    else // when response is ConsoleKey.Y
+        filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+    using (StreamWriter outputFile = new StreamWriter(Path.Combine(filePath!, "OutputFile.txt")))
+    {
+        foreach (var outputFields in outputFieldsList)
+            outputFile.WriteLine($" Variable ID: {outputFields.VariableID}, Min Value: {outputFields.MinValue}, Min TimeStamp: {outputFields.MinTimeStamp}, Max Value: {outputFields.MaxValue}, Max TimeStamp: {outputFields.MaxTimeStamp}");
+    }
 }
