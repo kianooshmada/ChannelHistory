@@ -52,9 +52,9 @@ internal class Program
             fileName = Console.ReadLine();
 
             if (string.IsNullOrEmpty(fileName))
-            {
+
                 Console.WriteLine("File name can't be empty!", Console.ForegroundColor = ConsoleColor.Yellow);
-            }
+
 
         } while (string.IsNullOrEmpty(fileName));
 
