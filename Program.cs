@@ -63,8 +63,8 @@ internal class Program
 
     private static List<ValuesTagFields> ReadValuesTagDataFromFile(string fileName)
     {
-        var valuesTagFieldsList = new List<ValuesTagFields>();
-        var cultureInfo = new CultureInfo("en-US");
+        List<ValuesTagFields> valuesTagFieldsList = new List<ValuesTagFields>();
+        CultureInfo cultureInfo = new CultureInfo("en-US");
 
         using (StreamReader reader = new StreamReader(fileName))
         {
@@ -100,7 +100,7 @@ internal class Program
 
     private static List<VariablesTagFields> ReadVariablesTagDataFromFile(string fileName)
     {
-        var variablesTagFieldsList = new List<VariablesTagFields>();
+        List<VariablesTagFields> variablesTagFieldsList = new List<VariablesTagFields>();
 
         using (StreamReader reader = new StreamReader(fileName))
         {
